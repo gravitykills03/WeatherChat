@@ -52,7 +52,13 @@ send_button.addEventListener("click", () => {
     chat_paragraph.classList.add("chat_content")
 })
 
+function openNav() {
+  document.getElementById("myNav").style.width = "30%";
+}
 
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
 // user_input_form.addEventListener("submit", (eObjForm) => {
 //     eObjForm.preventDefault();
 //     const userInput = search_term.value;
