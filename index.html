@@ -24,8 +24,15 @@
           
             <!-- Columns are always 50% wide, on mobile and desktop -->
             <div class = "row">
-                <div class = "col p-3 border bg-light" id = "textbox">USER ENTRY TEXT BOX</div>
-                <div class = "col-2 col-md-4 p-3 border bg-light" id = "send_button">SEND </div>
+                <div class = "col p-3 border bg-light" id = "textbox_div">
+                    <div class = "mb-1">
+                        <input class = "form-control" id = "user_textbox" rows = "3" minlength = "2" type = "text" placeholder = "Enter your message"></input>
+                      </div>
+                </div>
+                <div class = "text-center col-auto col-md-2 p-3 border bg-light" id = "send_button_div">
+                    <div class = "col-auto">
+                        <button class = "col btn btn-primary" type = "submit" id = "send_button">Send</button>                      
+                    </div>
               </div>
           </div>
     </div>
