@@ -14,12 +14,16 @@
     <div class = "container-md">
         <div class = "container text-center">
             <div class = "row gx-4">
-                <div class = "col-2 col-md-1 p-3 border bg-light" id = "navbar">NAVBAR</div>
+                <div class = "col-2 col-md-1 p-3 border bg-light" id = "navbar">NAV</div>
                 <div class = "col col-md p-3 border bg-light" id = "geolocation">LOCATION</div>
                 <div class = "col-sm col-md p-3 border bg-light" id ="weather">WEATHER</div>
             </div>
             <div class = "row p-3 border bg-light">
-              <div id = "chatbox">CHAT BOX</div>
+              <div id = "readonly_chatbox_div">
+                <div class="mb-3">
+                    <textarea readonly class="form-control" id="readonly_chatbox" rows="3"></textarea>
+                  </div>
+              </div>
             </div>
           
             <!-- Columns are always 50% wide, on mobile and desktop -->
