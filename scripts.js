@@ -53,7 +53,11 @@ send_button.addEventListener("click", () => {
 })
 
 function openNav() {
+  if(document.documentElement.clientWidth > 1300){
+    document.getElementById("myNav").style.width = "23%";
+  } else{
   document.getElementById("myNav").style.width = "30%";
+  }
 }
 
 function closeNav() {
