@@ -34,3 +34,16 @@
   height: 50px;
   width: 65px;
 }
+
+.chat_content {
+  display: flex;
+  position: relative;
+  border-radius: 3px;
+  background: rgb(236, 235, 235);
+  border: 3px solid grey;
+  margin-bottom: 20px;
+  width:max-content;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  justify-content: left;
+  padding: 0.5%;
+}
