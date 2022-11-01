@@ -51,12 +51,15 @@
 #chatbox_div{
   padding-top: 0.8rem;
   background: rgb(255, 255, 255);
-  min-height: 10rem;
+  min-height: 60vh;
   border-radius: .45rem;
-  max-height: 20rem;
+  max-height: 10rem;
+  overflow-y: scroll;
 }
 
-
+#header{
+  padding-top: 1.5vh;
+}
 .overlay {
   height: 100%;
   width: 0;
