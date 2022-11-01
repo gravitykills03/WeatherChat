@@ -1,0 +1,36 @@
+.search_bar {
+  justify-content: center;
+}
+  
+.weather_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    
+}
+#search_input {
+  border-radius: 1.5rem;
+  height: 2.5rem;
+  margin-top: 0.1rem;
+  border: 1px solid whitesmoke;
+  outline: none;
+  text-align: center;
+  font-size: 1rem;
+  font: "Roboto", sans-serif;
+}
+#search_input:focus {
+  box-shadow: 2px 2px 2px 2px #38b5fd;
+}
+
+#location, #cloud_info{
+  font-size: 1.25rem;
+  padding: .2rem;
+}
+
+.weather_text_style{
+  font-size: 1.25rem;
+}
+#static_img{
+  height: 50px;
+  width: 65px;
+}
