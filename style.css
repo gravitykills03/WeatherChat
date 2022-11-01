@@ -1,0 +1,8 @@
+nav{
+    display: flex;
+}
+
+.nav-container {
+    flex-direction: column;
+    display: flex;
+}
