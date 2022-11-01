@@ -16,7 +16,16 @@
     <div class = "container-md">
         <div class = "container text-center">
             <div class = "row gx-4">
-                <div class = "col-2 col-md-1 p-3 border bg-light" id = "navbar">NAV</div>
+                <div class = "col-2 col-md-1 p-3 border bg-light" id = "navbar">
+                  <div id="myNav" class="overlay">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">close</a>
+                    <div class="overlay-content">
+                      <a href="#">Change Location</a>
+                      <a href="#">About WeatherChat</a>
+                    </div>
+                  </div>
+                  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                </div>
                 <div class = "col col-md p-3 border bg-light" id = "geolocation">
                   <div class="search_bar">
                     <input
