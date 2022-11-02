@@ -47,26 +47,21 @@ document
     }
 });
 
-//send messege through ws
-const ws = new WebSocket("ws://localhost:8080");
+const socket = io.connect('http://localhost:8080/');
 
-ws.addEventListener("message", (ev) => {
-  ev.data.text().then(addMessages);
-});
+  socket.on("server-message", message => {
+  addMessages(message);
+  });
 
-document.querySelector("form").onsubmit = (ev) => {
-  ev.preventDefault();
-  const input = document.getElementById("user_textbox");
-  ws.send(input.value);
+
+
+document.querySelector('form').onsubmit = ev => {
+ev.preventDefault();
+const input = document.getElementById('user_textbox').value;
+addMessages(input);
+socket.emit("client-message", input);
+user_input_form.reset();
 };
-
-// UserInput Scripts
-user_input_form.addEventListener("submit", (eObjForm) => {
-  eObjForm.preventDefault();
-  const userInput = user_textbox.value;
-  user_input_form.reset();
-  addMessages(userInput);
-});
 
 function addMessages(userInput) {
   const chat_paragraph = document.createElement("p");
