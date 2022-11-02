@@ -104,19 +104,24 @@ font-weight:600;
   max-height: 100px;
   max-width: 300px;
 }
-.stickers {
-
-
+.gif_stickers {
   display: flex;
   border: 1px solid black;
   margin: 1px;
   max-height: 50%;
   max-width: 50%;
-
-
 }
-
-
+#emoji_popover_content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: fit-content;
+}
+.emoji_stickers {
+  margin: 3px;
+  height: max-content;
+  width: min-content;
+  font-size:1.65rem;
+}
 #header{
   padding-top: 1.5vh;
 }
