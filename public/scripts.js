@@ -1,4 +1,3 @@
-
 //popover menus for the GIF and EM buttons
 const popoverTriggerList = document.querySelectorAll(
   '[data-bs-toggle="popover"]'
@@ -48,19 +47,26 @@ document
 });
 
 const socket = io.connect('http://localhost:8080/');
-
   socket.on("server-message", message => {
   addMessages(message);
   });
 
-
-
+// If the user presses 'Enter' key to submit the mesage
 document.querySelector('form').onsubmit = ev => {
 ev.preventDefault();
 const input = document.getElementById('user_textbox').value;
 addMessages(input);
 socket.emit("client-message", input);
 user_input_form.reset();
+};
+
+// If the user clicks 'Send' button
+send_button.addEventListener("click", myFunction);
+function myFunction() {
+  const input = document.getElementById('user_textbox').value;
+  addMessages(input);
+  socket.emit("client-message", input);
+  user_input_form.reset();
 };
 
 function addMessages(userInput) {
@@ -72,13 +78,6 @@ function addMessages(userInput) {
   thisDate.innerText = currentDate;
   chat_paragraph.after(thisDate);
 }
-
-send_button.addEventListener("click", () => {
-  const input = document.getElementById('user_textbox').value;
-  addMessages(input);
-  socket.emit("client-message", input);
-  user_input_form.reset();
-});
 
 function openNav() {
   if (document.documentElement.clientWidth > 1300) {
@@ -157,6 +156,7 @@ function closeNav() {
       });
    }
 });
+
 function emojiClearOutput() {
   emoji_popover_content.innerText = "";
 }
