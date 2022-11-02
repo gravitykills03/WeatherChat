@@ -1,6 +1,3 @@
-// weather widget script
-// fa5d040af9254b09862fe801f0e26f5f
-// 18a14438c1564f54830311ea69473030
 
 //popover menus for the GIF and EM buttons
 const popoverTriggerList = document.querySelectorAll(
@@ -20,8 +17,10 @@ const popover2 = new bootstrap.Popover(document.getElementById("emoji_icon_box")
   content: document.getElementById("emoji_search")
 })
 
+// weather widget script
+// fa5d040af9254b09862fe801f0e26f5f
+// 18a14438c1564f54830311ea69473030
 const apiKey = "18a14438c1564f54830311ea69473030";
-
 document
   .querySelector("#search_input")
   .addEventListener("keydown", function (e) {
@@ -52,6 +51,33 @@ document
         });
     }
   });
+
+        // grab the weather image, temp, and description from API
+        const location_input = data.data[0]["city_name"];
+        const temperature = data.data[0].temp;
+        const weatherIcon = data.data[0].weather.icon;
+        const cloudStatus = data.data[0].weather.description;
+        document.getElementById("location").innerText = location_input;
+        document.querySelector(
+          ".icon"
+        ).src = `https://www.weatherbit.io/static/img/icons/${weatherIcon}.png`;
+
+        //Select the elements, apply css properties, update value
+        const tempDivChild = document.getElementById("temperature_info");
+        tempDivChild.innerText = `${temperature}°F`;
+        tempDivChild.classList.add("weather_text_style");
+        tempDivChild.style.cssText = "visibility : visible";
+
+        const descDivChild = document.getElementById("cloud_info");
+        descDivChild.innerText = cloudStatus;
+        descDivChild.classList.add("weather_text_style");
+        descDivChild.style.cssText = "visibility : visible";
+        
+        // reset text field to blank
+        document.querySelector("#search_input").value = "";
+    });
+  }
+});
 
 //send messege through ws
 const ws = new WebSocket("ws://localhost:8080");
