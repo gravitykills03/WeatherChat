@@ -102,6 +102,7 @@ font-weight:600;
   max-height: 100px;
   max-width: 300px;
 }
+
 .gif_stickers {
   display: flex;
   border: 1px solid black;
@@ -109,11 +110,13 @@ font-weight:600;
   max-height: 50%;
   max-width: 50%;
 }
+
 #emoji_popover_content {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   max-width: fit-content;
 }
+
 .emoji_stickers {
   margin: 3px;
   height: max-content;
@@ -123,6 +126,7 @@ font-weight:600;
 #header{
   padding-top: 1.5vh;
 }
+
 .overlay {
   height: 100%;
   width: 0;
