@@ -52,33 +52,6 @@ document
     }
   });
 
-        // grab the weather image, temp, and description from API
-        const location_input = data.data[0]["city_name"];
-        const temperature = data.data[0].temp;
-        const weatherIcon = data.data[0].weather.icon;
-        const cloudStatus = data.data[0].weather.description;
-        document.getElementById("location").innerText = location_input;
-        document.querySelector(
-          ".icon"
-        ).src = `https://www.weatherbit.io/static/img/icons/${weatherIcon}.png`;
-
-        //Select the elements, apply css properties, update value
-        const tempDivChild = document.getElementById("temperature_info");
-        tempDivChild.innerText = `${temperature}°F`;
-        tempDivChild.classList.add("weather_text_style");
-        tempDivChild.style.cssText = "visibility : visible";
-
-        const descDivChild = document.getElementById("cloud_info");
-        descDivChild.innerText = cloudStatus;
-        descDivChild.classList.add("weather_text_style");
-        descDivChild.style.cssText = "visibility : visible";
-        
-        // reset text field to blank
-        document.querySelector("#search_input").value = "";
-    });
-  }
-});
-
 //send messege through ws
 const ws = new WebSocket("ws://localhost:8080");
 
