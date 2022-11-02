@@ -33,16 +33,36 @@ document.querySelector('#search_input').addEventListener('keydown', function(e){
   }
 });
 
+//send messege through ws
+const ws = new WebSocket('ws://localhost:8080');
+
+ws.addEventListener('message', ev => {
+  ev.data.text().then(addMessages);
+});
+
+document.querySelector('form').onsubmit = ev => {
+    ev.preventDefault();
+    const input = document.getElementById('user_textbox');
+    ws.send(input.value);
+}
+
+
 // UserInput Scripts
 user_input_form.addEventListener("submit", (eObjForm) => {
-    eObjForm.preventDefault();
-    const userInput = user_textbox.value;
-    user_input_form.reset();
-    const chat_paragraph = document.createElement("p")
-    chat_paragraph.textContent = userInput;
-    chat_box.appendChild(chat_paragraph)
-    chat_paragraph.classList.add("chat_content")
+  eObjForm.preventDefault();
+  const userInput = user_textbox.value;
+  user_input_form.reset();
+  addMessages(userInput);
 })
+
+function addMessages(userInput){
+  const chat_paragraph = document.createElement("p")
+  chat_paragraph.textContent = userInput;
+  chat_box.appendChild(chat_paragraph)
+  chat_paragraph.classList.add("chat_content")
+}
+
+
 send_button.addEventListener("click", () => {
     const userInput = user_textbox.value;
     user_input_form.reset();
