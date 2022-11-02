@@ -9,12 +9,12 @@ const popoverList = [...popoverTriggerList].map(
 const popover1 = new bootstrap.Popover(document.getElementById("gif_icon_box"), {
   container: 'body',
   html: true,
-  content: document.getElementById("gif_search")
+  content: document.getElementById("gif_search"),
 })
 const popover2 = new bootstrap.Popover(document.getElementById("emoji_icon_box"), {
   container: 'body',
   html: true,
-  content: document.getElementById("emoji_search")
+  content: document.getElementById("emoji_search"),
 })
 
 // weather widget script
@@ -122,7 +122,7 @@ function closeNav() {
             .map((gif) => gif.images.fixed_height.url)
             .forEach((url) => {
               const stickers = document.createElement("img");
-              stickers.classList.add("stickers");
+              stickers.classList.add("gif_stickers");
               stickers.setAttribute("src", url);
               gif_popover_content.appendChild(stickers);
               const chat_cont = document.getElementById("chat_box");
@@ -134,16 +134,47 @@ function closeNav() {
                 clearOutput();
               }
               stickers.onclick = addGifToContainer;
+              gif_form_container.reset();
             });
         });
-    }
-    if (eObjContainer.target.classList.contains("reset_button")) {
-      clearOutput();
     }
   });
   function clearOutput() {
     gif_popover_content.innerText = "";
   }
+  emoji_form_container.addEventListener("submit", (eObjContainer) => {
+  eObjContainer.preventDefault();
+  const userInput = emoji_search_term.value;
+  const url = `https://api.emojisworld.fr/v1/search?&q=${userInput}&limit=25`;
+  if (userInput.length != 0) {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        emojiClearOutput();
+        json.results
+          .map((emoji) => emoji.emoji)
+          .forEach((emoji) => {
+            const stickers = document.createElement("p");
+            stickers.innerText = emoji
+            stickers.classList.add("emoji_stickers");
+            emoji_popover_content.appendChild(stickers);
+            const chat_cont = document.getElementById("chat_box");
+            function addEmojiToContainer() {
+              chat_cont.appendChild(stickers);
+              const thisDate = document.createElement("p");
+              thisDate.innerText = currentDate;
+              stickers.after(thisDate);
+              emojiClearOutput();
+            }
+            stickers.onclick = addEmojiToContainer;
+            emoji_form_container.reset();
+          });
+      });
+   }
+});
+function emojiClearOutput() {
+  emoji_popover_content.innerText = "";
+}
   const date = new Date();
 
   const currentDate = date.toLocaleString("en-GB", {
@@ -153,6 +184,3 @@ function closeNav() {
     hour: "numeric",
     minute: "2-digit",
   });
-//   function insertAfter(newNode, existingNode) {
-//     existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-//   }
