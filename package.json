@@ -1,27 +1,8 @@
 {
-  "name": "weatherchat",
-  "version": "1.0.0",
-  "description": "Web Application for retrieving weather at a specific location and a chatbox.",
-  "main": "scripts.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "type": "module",
   "dependencies": {
-    "websocket": "^1.0.34",
-    "ws": "^8.10.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gravitykills03/WeatherChat.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gravitykills03/WeatherChat/issues"
-  },
-  "homepage": "https://github.com/gravitykills03/WeatherChat#readme",
-  "dependencies": {
-    "ws": "^8.10.0"
+    "express": "^4.18.2",
+    "express.js": "^1.0.0",
+    "node": "^14.21.0",
+    "socket.io": "^4.5.3"
   }
 }
