@@ -57,6 +57,64 @@
   overflow-y: scroll;
 }
 
+#gif_button_icon {
+  max-width: fit-content;
+  min-width: fit-content;
+  padding: 1px!important;
+
+}
+#gif_button_box {
+display: flex;
+justify-content:center;
+flex-direction: column;
+width: 10%;
+max-width: fit-content;
+padding: 1px!important;
+align-content:center;
+align-items: center;
+}
+
+.btn-danger {
+  --bs-btn-bg: green;
+}
+
+#gif_icon_box {
+padding: 0rem;
+max-width: fit-content;
+max-width: fit-content;
+padding: 3px!important;
+font-weight:600;
+}
+#emoji_icon_box {
+  padding: 0rem;
+  max-width: fit-content;
+  max-width: fit-content;
+  padding: 3px!important;
+  font-weight:600;
+  }
+
+#gif_popover_content {
+  display: flex;
+  position: relative;
+  justify-content: left;
+  overflow: scroll;
+  height: fit-content;
+  max-height: 100px;
+  max-width: 300px;
+}
+.stickers {
+
+
+  display: flex;
+  border: 1px solid black;
+  margin: 1px;
+  max-height: 50%;
+  max-width: 50%;
+
+
+}
+
+
 #header{
   padding-top: 1.5vh;
 }
