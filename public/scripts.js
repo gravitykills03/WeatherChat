@@ -115,6 +115,7 @@ function closeNav() {
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
+                popover1.hide();
                 clearOutput();
               }
               stickers.onclick = addGifToContainer;
@@ -148,6 +149,7 @@ function closeNav() {
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
+              popover2.hide();
               emojiClearOutput();
             }
             stickers.onclick = addEmojiToContainer;
