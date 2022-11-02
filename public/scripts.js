@@ -74,15 +74,10 @@ function addMessages(userInput) {
 }
 
 send_button.addEventListener("click", () => {
-  const userInput = user_textbox.value;
+  const input = document.getElementById('user_textbox').value;
+  addMessages(input);
+  socket.emit("client-message", input);
   user_input_form.reset();
-  const chat_paragraph = document.createElement("p");
-  chat_paragraph.textContent = userInput;
-  chat_box.appendChild(chat_paragraph);
-  chat_paragraph.classList.add("chat_content");
-  const thisDate = document.createElement("p");
-  thisDate.innerText = currentDate;
-  chat_paragraph.after(thisDate);
 });
 
 function openNav() {

@@ -12,6 +12,7 @@ io.on("connection", (socket) => {
         //push message to mes[]
         //broadcast msg[]
         socket.broadcast.emit("server-message", message);
+        console.log(message);
       });
 });
 
