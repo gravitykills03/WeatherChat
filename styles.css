@@ -41,11 +41,12 @@
   border-radius: .45rem;
   background: rgb(236, 235, 235);
   border: 2px solid rgb(180, 179, 179);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0rem;
   width:max-content;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   justify-content: left;
-  padding: 0.5%;
+  padding: .25rem;
+  max-width: fit-content;
 }
 
 #chatbox_div{
@@ -54,7 +55,8 @@
   min-height: 60vh;
   border-radius: .45rem;
   max-height: 10rem;
-  overflow-y: scroll;
+  overflow: scroll;
+  text-align:left;
 }
 
 #gif_button_icon {
