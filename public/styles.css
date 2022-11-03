@@ -154,6 +154,10 @@ font-weight:600;
   margin-top: 30px;
 }
 
+.overlay-content h3{
+  color: white;
+  padding: 1em;
+}
 .overlay a {
   padding: 8px;
   text-decoration: none;
