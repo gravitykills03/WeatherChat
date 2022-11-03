@@ -1,4 +1,3 @@
-
 //popover menus for the GIF and EM buttons
 const popoverTriggerList = document.querySelectorAll(
   '[data-bs-toggle="popover"]'
@@ -68,26 +67,28 @@ document
     }
 });
 
-//send messege through ws
-const ws = new WebSocket("ws://localhost:8080");
+const socket = io.connect('http://localhost:8080/');
+  socket.on("server-message", message => {
+  addMessages(message);
+  });
 
-ws.addEventListener("message", (ev) => {
-  ev.data.text().then(addMessages);
-});
-
-document.querySelector("form").onsubmit = (ev) => {
-  ev.preventDefault();
-  const input = document.getElementById("user_textbox");
-  ws.send(input.value);
+// If the user presses 'Enter' key to submit the mesage
+document.querySelector('form').onsubmit = ev => {
+ev.preventDefault();
+const input = document.getElementById('user_textbox').value;
+addMessages(input);
+socket.emit("client-message", input);
+user_input_form.reset();
 };
 
-// UserInput Scripts
-user_input_form.addEventListener("submit", (eObjForm) => {
-  eObjForm.preventDefault();
-  const userInput = user_textbox.value;
+// If the user clicks 'Send' button
+send_button.addEventListener("click", myFunction);
+function myFunction() {
+  const input = document.getElementById('user_textbox').value;
+  addMessages(input);
+  socket.emit("client-message", input);
   user_input_form.reset();
-  addMessages(userInput);
-});
+};
 
 function addMessages(userInput) {
   const chat_paragraph = document.createElement("p");
@@ -98,18 +99,6 @@ function addMessages(userInput) {
   thisDate.innerText = currentDate;
   chat_paragraph.after(thisDate);
 }
-
-send_button.addEventListener("click", () => {
-  const userInput = user_textbox.value;
-  user_input_form.reset();
-  const chat_paragraph = document.createElement("p");
-  chat_paragraph.textContent = userInput;
-  chat_box.appendChild(chat_paragraph);
-  chat_paragraph.classList.add("chat_content");
-  const thisDate = document.createElement("p");
-  thisDate.innerText = currentDate;
-  chat_paragraph.after(thisDate);
-});
 
 function openNav() {
   if (document.documentElement.clientWidth > 1300) {
@@ -147,6 +136,7 @@ function closeNav() {
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
+                popover1.hide();
                 clearOutput();
               }
               stickers.onclick = addGifToContainer;
@@ -180,6 +170,7 @@ function closeNav() {
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
+              popover2.hide();
               emojiClearOutput();
             }
             stickers.onclick = addEmojiToContainer;
@@ -188,6 +179,7 @@ function closeNav() {
       });
    }
 });
+
 function emojiClearOutput() {
   emoji_popover_content.innerText = "";
 }
