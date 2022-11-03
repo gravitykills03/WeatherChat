@@ -128,10 +128,8 @@ function closeNav() {
               gif_popover_content.appendChild(stickers);
               const chat_cont = document.getElementById("chat_box");
               function addGifToContainer() {
-                debugger;
                 chat_cont.appendChild(stickers);
                 socket.emit("client-message", stickers.src);
-                debugger;
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
@@ -165,6 +163,7 @@ function closeNav() {
             const chat_cont = document.getElementById("chat_box");
             function addEmojiToContainer() {
               chat_cont.appendChild(stickers);
+              socket.emit("client-message", stickers.innerText);
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
