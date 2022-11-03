@@ -30,10 +30,10 @@ var requestOptions = {
 fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=4a33cf2ac7a847d0b4d55c8d52efcd1e", requestOptions)
   .then(response => response.json())
   .then((result) => {
-    const longitude = result.location.longitude;
-    const latitude = result.location.latitude;
+    const location = result.city.name;
 
-    const geoAPI = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${API_KEY}&include=minutely`
+
+    const geoAPI = `https://api.weatherbit.io/v2.0/current?&city=${location}&units=I&key=${API_KEY}`;
 
     fetch(geoAPI)
         .then((response) => response.json())
