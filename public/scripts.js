@@ -122,14 +122,17 @@ function closeNav() {
           json.data
             .map((gif) => gif.images.fixed_height.url)
             .forEach((url) => {
+              const stickers_cont = document.createElement("div")
+              stickers_cont.classList.add("stickers_cont");
               const stickers = document.createElement("img");
               stickers.classList.add("gif_stickers");
               stickers.setAttribute("src", url);
               gif_popover_content.appendChild(stickers);
               const chat_cont = document.getElementById("chat_box");
               function addGifToContainer() {
-                chat_cont.appendChild(stickers);
-                socket.emit("client-message", stickers.src);
+                chat_cont.appendChild(stickers_cont);
+                stickers_cont.appendChild(stickers);
+
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
@@ -157,14 +160,17 @@ function closeNav() {
         json.results
           .map((emoji) => emoji.emoji)
           .forEach((emoji) => {
+            const stickers_cont = document.createElement("div")
+            stickers_cont.classList.add("stickers_cont");
             const stickers = document.createElement("p");
             stickers.innerText = emoji
             stickers.classList.add("emoji_stickers");
             emoji_popover_content.appendChild(stickers);
             const chat_cont = document.getElementById("chat_box");
             function addEmojiToContainer() {
-              chat_cont.appendChild(stickers);
-              socket.emit("client-message", stickers.innerText);
+              chat_cont.appendChild(stickers_cont);
+              stickers_cont.appendChild(stickers);
+
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
