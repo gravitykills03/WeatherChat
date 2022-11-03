@@ -116,6 +116,9 @@ font-weight:600;
   max-height: 50%;
   max-width: 50%;
 }
+.stickers_cont {
+  pointer-events: none;
+}
 
 #emoji_popover_content {
   display: grid;
