@@ -42,7 +42,6 @@ fetch(gelocation)
           // reset text field to blank
           document.querySelector("#search_input").value = "";
         });
-    }
 document
   .querySelector("#search_input")
   .addEventListener("keydown", function (e) {
