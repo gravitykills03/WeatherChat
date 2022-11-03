@@ -57,7 +57,7 @@ socket.on("server-message", message => {
     gif.setAttribute("src", message);
     chat_cont.appendChild(gif);
     const thisDate = document.createElement("p");
-    thisDate.innerText = currentDate;
+    thisDate.innerText = currentDate();
     chat_cont.appendChild(thisDate);
   }
   else{
@@ -90,7 +90,7 @@ function addMessages(userInput) {
   chat_box.appendChild(chat_paragraph);
   chat_paragraph.classList.add("chat_content");
   const thisDate = document.createElement("p");
-  thisDate.innerText = currentDate;
+  thisDate.innerText = currentDate();
   chat_paragraph.after(thisDate);
 }
 
@@ -134,7 +134,7 @@ function closeNav() {
                 stickers_cont.appendChild(stickers);
                 socket.emit("client-message", stickers.src);
                 const thisDate = document.createElement("p");
-                thisDate.innerText = currentDate;
+                thisDate.innerText = currentDate();
                 stickers.after(thisDate);
                 popover1.hide();
                 clearOutput();
@@ -172,7 +172,7 @@ function closeNav() {
               stickers_cont.appendChild(stickers);
               socket.emit("client-message", stickers.innerText);
               const thisDate = document.createElement("p");
-              thisDate.innerText = currentDate;
+              thisDate.innerText = currentDate();
               stickers.after(thisDate);
               popover2.hide();
               emojiClearOutput();
@@ -187,12 +187,15 @@ function closeNav() {
 function emojiClearOutput() {
   emoji_popover_content.innerText = "";
 }
+function currentDate() {
   const date = new Date();
-
-  const currentDate = date.toLocaleString("en-GB", {
+  const dateString = date.toLocaleString("en-GB", {
     day: "numeric",
     month: "short",
     year: "numeric",
     hour: "numeric",
-    minute: "2-digit",
-  });
+    minute: "2-digit"
+  }); 
+  return dateString;
+}
+
