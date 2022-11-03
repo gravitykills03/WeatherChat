@@ -63,6 +63,8 @@
   max-height: 10rem;
   overflow: scroll;
   text-align:left;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #gif_button_icon {
