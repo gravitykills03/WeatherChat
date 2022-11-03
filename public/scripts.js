@@ -88,8 +88,8 @@ document
 });
 
 // connect to server
-const socket = io.connect('http://localhost:8080/');
-
+// const socket = io.connect('https://we-chat-2022.herokuapp.com/');
+const socket = io.connect('https://we-chat-2022.herokuapp.com/');
 // listen for server messages
 socket.on("server-message", message => {
   if(message.startsWith("https")){
@@ -138,11 +138,12 @@ function addMessages(userInput) {
 
 // open nav animation
 function openNav() {
-  if (document.documentElement.clientWidth > 1300) {
-    document.getElementById("myNav").style.width = "23%";
-  } else {
-    document.getElementById("myNav").style.width = "30%";
+  if (document.documentElement.clientWidth > 1000) {
+    document.getElementById("myNav").style.width = "33%";
   }
+  if (document.documentElement.clientWidth < 500) {
+    document.getElementById("myNav").style.width = "55%";
+  } 
 }
 
 // open nav animation
