@@ -66,11 +66,25 @@ document
         });
     }
 });
-
+// connect to server
 const socket = io.connect('http://localhost:8080/');
-  socket.on("server-message", message => {
+
+// listen for server messages
+socket.on("server-message", message => {
+  if(message.startsWith("https")){
+    const chat_cont = document.getElementById("chat_box");
+    let gif = document.createElement("img");
+    gif.classList.add("gif_stickers");
+    gif.setAttribute("src", message);
+    chat_cont.appendChild(gif);
+    const thisDate = document.createElement("p");
+    thisDate.innerText = currentDate;
+    chat_cont.appendChild(thisDate);
+  }
+  else{
   addMessages(message);
-  });
+  }
+});
 
 // If the user presses 'Enter' key to submit the mesage
 document.querySelector('form').onsubmit = ev => {
@@ -90,6 +104,7 @@ function myFunction() {
   user_input_form.reset();
 };
 
+// transform text to paragraph and append to container
 function addMessages(userInput) {
   const chat_paragraph = document.createElement("p");
   chat_paragraph.textContent = userInput;
@@ -100,6 +115,7 @@ function addMessages(userInput) {
   chat_paragraph.after(thisDate);
 }
 
+// open nav animation
 function openNav() {
   if (document.documentElement.clientWidth > 1300) {
     document.getElementById("myNav").style.width = "23%";
@@ -108,6 +124,7 @@ function openNav() {
   }
 }
 
+// open nav animation
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
@@ -133,6 +150,7 @@ function closeNav() {
               const chat_cont = document.getElementById("chat_box");
               function addGifToContainer() {
                 chat_cont.appendChild(stickers);
+                socket.emit("client-message", stickers.src);
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
@@ -167,6 +185,7 @@ function closeNav() {
             const chat_cont = document.getElementById("chat_box");
             function addEmojiToContainer() {
               chat_cont.appendChild(stickers);
+              socket.emit("client-message", stickers.innerText);
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
