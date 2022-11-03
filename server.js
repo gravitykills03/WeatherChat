@@ -10,6 +10,7 @@ io.on("connection", (socket) => {
     socket.on("client-message", (message) => {
         //send message to every connection except sender
         socket.broadcast.emit("server-message", message);
+        console.log(message);
       });
 });
 

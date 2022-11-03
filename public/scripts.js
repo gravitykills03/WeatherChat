@@ -50,7 +50,19 @@ const socket = io.connect('http://localhost:8080/');
 
 // listen for server messages
 socket.on("server-message", message => {
+  if(message.startsWith("https")){
+    const chat_cont = document.getElementById("chat_box");
+    let gif = document.createElement("img");
+    gif.classList.add("gif_stickers");
+    gif.setAttribute("src", message);
+    chat_cont.appendChild(gif);
+    const thisDate = document.createElement("p");
+    thisDate.innerText = currentDate;
+    chat_cont.appendChild(thisDate);
+  }
+  else{
   addMessages(message);
+  }
 });
 
 // If the user presses 'Enter' key to submit the mesage
@@ -116,7 +128,10 @@ function closeNav() {
               gif_popover_content.appendChild(stickers);
               const chat_cont = document.getElementById("chat_box");
               function addGifToContainer() {
+                debugger;
                 chat_cont.appendChild(stickers);
+                socket.emit("client-message", stickers.src);
+                debugger;
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
