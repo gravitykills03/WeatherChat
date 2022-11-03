@@ -46,10 +46,13 @@
   border: 2px solid rgb(180, 179, 179);
   margin-bottom: 0rem;
   width:max-content;
+  max-width: fit-content;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
   justify-content: left;
   padding: .25rem;
-  max-width: fit-content;
+  white-space: pre-wrap;
+  word-break: break-word;
+  white-space: normal;
 }
 
 #chatbox_div{
@@ -115,6 +118,9 @@ font-weight:600;
   margin: 1px;
   max-height: 50%;
   max-width: 50%;
+}
+.stickers_cont {
+  pointer-events: none;
 }
 
 #emoji_popover_content {
