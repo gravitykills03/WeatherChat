@@ -132,7 +132,7 @@ function closeNav() {
               function addGifToContainer() {
                 chat_cont.appendChild(stickers_cont);
                 stickers_cont.appendChild(stickers);
-
+                socket.emit("client-message", stickers.src);
                 const thisDate = document.createElement("p");
                 thisDate.innerText = currentDate;
                 stickers.after(thisDate);
@@ -170,7 +170,7 @@ function closeNav() {
             function addEmojiToContainer() {
               chat_cont.appendChild(stickers_cont);
               stickers_cont.appendChild(stickers);
-
+              socket.emit("client-message", stickers.src);
               const thisDate = document.createElement("p");
               thisDate.innerText = currentDate;
               stickers.after(thisDate);
