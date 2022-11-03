@@ -8,6 +8,7 @@
   align-items: center;
     
 }
+
 #search_input {
   border-radius: 1.5rem;
   height: 2.5rem;
@@ -18,6 +19,7 @@
   font-size: 1rem;
   font: "Roboto", sans-serif;
 }
+
 #search_input:focus {
   box-shadow: 2px 2px 2px 2px #38b5fd;
 }
@@ -30,6 +32,7 @@
 .weather_text{
   font-size: 1.25rem;
 }
+
 #static_img{
   height: 50px;
   width: 65px;
@@ -62,16 +65,18 @@
 #gif_button_icon {
   max-width: fit-content;
   min-width: fit-content;
-  padding: 1px!important;
-
 }
+
 #gif_button_box {
 display: flex;
 justify-content:center;
 flex-direction: column;
 width: 10%;
 max-width: fit-content;
-padding: 1px!important;
+padding-top: 0.35rem!important;
+padding-left: 0.22rem!important;
+padding-right: 0.15rem!important;
+padding-bottom: 0.0rem!important;
 align-content:center;
 align-items: center;
 }
@@ -83,15 +88,16 @@ align-items: center;
 #gif_icon_box {
 padding: 0rem;
 max-width: fit-content;
-padding: 3px!important;
+padding: 3px;
 font-weight:600;
 }
+
 #emoji_icon_box {
   padding: 0rem;
   max-width: fit-content;
-  padding: 3px!important;
+  padding: 3px;
   font-weight:600;
-  }
+}
 
 #gif_popover_content {
   display: flex;
@@ -102,6 +108,7 @@ font-weight:600;
   max-height: 100px;
   max-width: 300px;
 }
+
 .gif_stickers {
   display: flex;
   border: 1px solid black;
@@ -109,11 +116,13 @@ font-weight:600;
   max-height: 50%;
   max-width: 50%;
 }
+
 #emoji_popover_content {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   max-width: fit-content;
 }
+
 .emoji_stickers {
   margin: 3px;
   height: max-content;
@@ -123,6 +132,7 @@ font-weight:600;
 #header{
   padding-top: 1.5vh;
 }
+
 .overlay {
   height: 100%;
   width: 0;
