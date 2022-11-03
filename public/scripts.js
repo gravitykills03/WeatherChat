@@ -22,6 +22,46 @@ const popover2 = new bootstrap.Popover(document.getElementById("emoji_icon_box")
 
 //API KEY to access weatherbit API
 const API_KEY = "18a14438c1564f54830311ea69473030";
+
+var requestOptions = {
+  method: 'GET',
+};
+
+fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=4a33cf2ac7a847d0b4d55c8d52efcd1e", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    const location = result.city.name;
+
+
+    const geoAPI = `https://api.weatherbit.io/v2.0/current?&city=${location}&units=I&key=${API_KEY}`;
+
+    fetch(geoAPI)
+        .then((response) => response.json())
+        .then((data) => {
+          
+          // select the weather image, temp, and description elements and update values from API
+          document.getElementById("location").innerText = data.data[0]["city_name"];
+          document.querySelector(
+            ".icon"
+          ).src = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
+          document.getElementById("temperature_info").innerText = `${data.data[0].temp}°F`;
+          document.getElementById("weather_description").innerText = data.data[0].weather.description;
+
+          // reset text field to blank
+          document.querySelector("#search_input").value = "";
+        });
+  });
+  //console.log(result.location.latitude))
+  //.catch(error => console.log('error', error));
+
+
+
+  
+// weather widget script
+// API_KEY = "fa5d040af9254b09862fe801f0e26f5f";
+// API_KEY = "18a14438c1564f54830311ea69473030";
+
+
 document
   .querySelector("#search_input")
   .addEventListener("keydown", function (e) {
@@ -44,7 +84,9 @@ document
           document.querySelector("#search_input").value = "";
         });
     }
+    
 });
+
 // connect to server
 const socket = io.connect('http://localhost:8080/');
 
