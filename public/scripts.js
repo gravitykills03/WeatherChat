@@ -16,32 +16,12 @@ const popover2 = new bootstrap.Popover(document.getElementById("emoji_icon_box")
   content: document.getElementById("emoji_search"),
 })
 
-//function success(position) {
-//  const latitude  = position.coords.latitude;
-//  const longitude = position.coords.longitude;
-//}
 // weather widget script
 // API_KEY = "fa5d040af9254b09862fe801f0e26f5f";
 // API_KEY = "18a14438c1564f54830311ea69473030";
 
 //API KEY to access weatherbit API
 const API_KEY = "18a14438c1564f54830311ea69473030";
-const geolocation = `https://api.weatherbit.io/v2.0/GET /current?lat={lat}&lon={lon}&units=I&key=${API_KEY}`;
-fetch(gelocation)
-        .then((response) => response.json())
-        .then((data) => {
-          
-          // select the weather image, temp, and description elements and update values from API
-          document.getElementById("location").innerText = data.data[0]["city_name"];
-          document.querySelector(
-            ".icon"
-          ).src = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
-          document.getElementById("temperature_info").innerText = `${data.data[0].temp}°F`;
-          document.getElementById("weather_description").innerText = data.data[0].weather.description;
-
-          // reset text field to blank
-          document.querySelector("#search_input").value = "";
-        });
 document
   .querySelector("#search_input")
   .addEventListener("keydown", function (e) {
