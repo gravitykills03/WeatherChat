@@ -14,5 +14,5 @@ Description: A Real time chat application with weather functionality based on IP
 # Developed by:
 - David Holman LinkedIn [link](https://www.linkedin.com/in/davidholmanpage/ "LinkedIn")
 - Craig Kelleher LinkedIn [link](https://www.linkedin.com/in/craigkelleher/ "LinkedIn")
-- Brendon King LinkedIn [link](https://www.linkedin.com/in/brenden-king-swe/ "LinkedIn")
+- Brenden King LinkedIn [link](https://www.linkedin.com/in/brenden-king-swe/ "LinkedIn")
 - Patrick Lauer LinkedIn [link](https://www.linkedin.com/in/pj-lauer/ "LinkedIn")
