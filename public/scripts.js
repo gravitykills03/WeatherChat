@@ -88,7 +88,6 @@ document
 });
 
 // connect to server
-// const socket = io.connect('https://we-chat-2022.herokuapp.com/');
 const socket = io.connect('https://we-chat-2022.herokuapp.com/');
 // listen for server messages
 socket.on("server-message", message => {
