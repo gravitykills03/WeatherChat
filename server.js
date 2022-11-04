@@ -10,7 +10,6 @@ io.on("connection", (socket) => {
     console.log("new connection" + socket);
     //recieve client message
     socket.on("client-message", (message) => {
-        // console.log("we inside server");
         //send message to every connection except sender
         socket.broadcast.emit("server-message", message);
         console.log(message);
