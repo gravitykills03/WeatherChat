@@ -117,12 +117,11 @@ function addMessages(userInput) {
 
 // open nav animation
 function openNav() {
-  if (document.documentElement.clientWidth > 1000) {
-    document.getElementById("myNav").style.width = "33%";
-  }
   if (document.documentElement.clientWidth < 500) {
     document.getElementById("myNav").style.width = "55%";
-  } 
+  } else {
+    document.getElementById("myNav").style.width = "33%";
+  }
 }
 
 // open nav animation
