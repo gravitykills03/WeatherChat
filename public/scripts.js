@@ -91,7 +91,7 @@ document
 const socket = io.connect('https://we-chat-2022.herokuapp.com/');
 // listen for server messages
 socket.on("server-message", message => {
-  if(message.startsWith("https")){
+  if(message.startsWith("https://media")){
     const chat_cont = document.getElementById("chat_box");
     let gif = document.createElement("img");
     gif.classList.add("gif_stickers");
