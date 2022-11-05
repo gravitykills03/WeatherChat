@@ -12,7 +12,7 @@ Description: A Real time chat application with weather functionality based on IP
 - Connected to a backend and deployed to Heroku
 
 # Developed by:
-- David Holman LinkedIn [link](https://www.linkedin.com/in/davidholmanpage/ "LinkedIn")
-- Craig Kelleher LinkedIn [link](https://www.linkedin.com/in/craigkelleher/ "LinkedIn")
-- Brenden King LinkedIn [link](https://www.linkedin.com/in/brenden-king-swe/ "LinkedIn")
-- Patrick Lauer LinkedIn [link](https://www.linkedin.com/in/pj-lauer/ "LinkedIn")
+- David Holman [LinkedIn](https://www.linkedin.com/in/davidholmanpage/ "LinkedIn")
+- Craig Kelleher [LinkedIn](https://www.linkedin.com/in/craigkelleher/ "LinkedIn")
+- Brenden King [LinkedIn](https://www.linkedin.com/in/brenden-king-swe/ "LinkedIn")
+- Patrick Lauer [LinkedIn](https://www.linkedin.com/in/pj-lauer/ "LinkedIn")
